@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+    <!-- 数据源 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/BCOS?useUnicode=true&amp;characterEncoding=UTF-8">
+		</property>
+		<property name="username" value="root"></property>
+		<property name="password" value="123456"></property>
+	</bean>
+	<!-- 创建数据源的工厂 -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQL5Dialect
+				</prop>
+				<prop key="hibernate.show_sql">
+					true
+				</prop>
+			</props>
+		</property>
+		<!-- 持久层实体映射文件 -->
+		<property name="mappingResources">
+			<list>
+				<value>
+					com/bcos/conf/hibernate/Brand.hbm.xml
+				</value>
+				<value>
+					com/bcos/conf/hibernate/Client.hbm.xml
+				</value>
+				<value>
+					com/bcos/conf/hibernate/Size.hbm.xml
+				</value>
+				<value>
+					com/bcos/conf/hibernate/Usage.hbm.xml
+				</value>
+				<value>
+					com/bcos/conf/hibernate/Series.hbm.xml
+				</value>
+				<value>
+					com/bcos/conf/hibernate/User.hbm.xml
+				</value>
+				<value>
+					com/bcos/conf/hibernate/OrderList.hbm.xml
+				</value>
+				<value>
+					com/bcos/conf/hibernate/ClientToSeries.hbm.xml
+				</value>
+				<value>
+					com/bcos/conf/hibernate/Model.hbm.xml
+				</value>
+				<value>
+					com/bcos/conf/hibernate/OrderListDetail.hbm.xml
+				</value>
+			
+			</list>
+		</property>
+	</bean>
+	<!-- hibernateTemplate -->
+	<bean id="hibernateTemplate"
+		class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<constructor-arg>
+			<ref local="sessionFactory" />
+		</constructor-arg>
+	</bean>
+	
+	<bean id="baseTxService"  
+    class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"  
+    abstract="true">  
+    <property name="transactionManager" ref="transactionManager" />  
+  
+    <property name="transactionAttributes">  
+        <props>  
+            <prop key="get*">  
+                PROPAGATION_SUPPORTS,readOnly 
+            </prop>  
+            <prop key="draw*">  
+                PROPAGATION_SUPPORTS,readOnly
+            </prop>  
+            <prop key="find*">  
+                PROPAGATION_SUPPORTS,readOnly
+            </prop>  
+            <prop key="load*">  
+                PROPAGATION_SUPPORTS,readOnly
+            </prop>  
+            <prop key="save*">  
+                PROPAGATION_REQUIRED 
+            </prop>  
+            <prop key="update*">  
+                PROPAGATION_REQUIRED
+            </prop>  
+            <prop key="delete*">  
+                PROPAGATION_REQUIRED  
+            </prop>  
+            <prop key="add*">  
+                PROPAGATION_REQUIRED  
+            </prop>  
+            <prop key="import*">  
+                PROPAGATION_REQUIRED
+            </prop>  
+            <prop key="query*">  
+                PROPAGATION_SUPPORTS,readOnly  
+            </prop> 
+            <prop key="display*">  
+                PROPAGATION_SUPPORTS,readOnly  
+            </prop> 
+         </props>  
+    </property>
+</bean>  
+</beans>

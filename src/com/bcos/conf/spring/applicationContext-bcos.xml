@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<!-- Action控制层 bean-->
+	<bean id="loginAction" class="com.bcos.action.LoginAction" scope="prototype">
+		<property name="loginBO">
+			<ref local="loginBO"/>
+		</property>
+	</bean>
+	
+	<bean id="brandManageAction" class="com.bcos.action.BrandManageAction" scope="prototype">
+		<property name="brandManageBO">
+			<ref local="brandManageBO"/>
+		</property>
+	</bean>
+	
+	<bean id="usageManageAction" class="com.bcos.action.UsageManageAction" scope="prototype">
+		<property name="usageManageBO">
+			<ref local="usageManageBO"/>
+		</property>
+	</bean>
+	
+	<bean id="seriesManageAction" class="com.bcos.action.SeriesManageAction" scope="prototype">
+		<property name="seriesManageBO">
+			<ref local="seriesManageBO"/>
+		</property>
+	</bean>
+	
+	<bean id="sizeManageAction" class="com.bcos.action.SizeManageAction" scope="prototype">
+		<property name="sizeManageBO">
+			<ref local="sizeManageBO"/>
+		</property>
+	</bean>
+	
+	<bean id="modelManageAction" class="com.bcos.action.ModelManageAction" scope="prototype">
+		<property name="modelManageBO">
+			<ref local="modelManageBO"/>
+		</property>
+	</bean>
+	
+	<bean id="clientManageAction" class="com.bcos.action.ClientManageAction" scope="prototype">
+		<property name="clientManageBO">
+			<ref local="clientManageBO"/>
+		</property>
+	</bean>
+	
+	<bean id="userManageAction" class="com.bcos.action.UserManageAction" scope="prototype">
+		<property name="userManageBO">
+			<ref local="userManageBO"/>
+		</property>
+	</bean>
+	
+	<bean id="clientToSeriesManageAction" class="com.bcos.action.ClientToSeriesManageAction" scope="prototype">
+		<property name="clientToSeriesManageBO">
+			<ref local="clientToSeriesManageBO"/>
+		</property>
+	</bean>
+	
+	<bean id="orderListManageAction" class="com.bcos.action.OrderListManageAction" scope="prototype">
+		<property name="orderListManageBO">
+			<ref local="orderListManageBO"/>
+		</property>
+	</bean>
+	
+	<!-- bo bean -->
+	<bean id="loginBO"
+		class="com.bcos.bo.impl.LoginBOImpl"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="loginDAO">
+			<ref bean="loginDAO" />
+		</property>
+	</bean>
+	<bean id="brandManageBO"
+		class="com.bcos.bo.impl.BrandManageBOImpl"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="brandManageDAO">
+			<ref bean="brandManageDAO" />
+		</property>
+	</bean>
+	
+	<bean id="usageManageBO"
+		class="com.bcos.bo.impl.UsageManageBOImpl"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="usageManageDAO">
+			<ref bean="usageManageDAO" />
+		</property>
+	</bean>
+	
+	<bean id="seriesManageBO"
+		class="com.bcos.bo.impl.SeriesManageBOImpl"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="seriesManageDAO">
+			<ref bean="seriesManageDAO" />
+		</property>
+	</bean>
+	
+	<bean id="sizeManageBO"
+		class="com.bcos.bo.impl.SizeManageBOImpl"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="sizeManageDAO">
+			<ref bean="sizeManageDAO" />
+		</property>
+	</bean>
+	
+	<bean id="modelManageBO"
+		class="com.bcos.bo.impl.ModelManageBOImpl"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="modelManageDAO">
+			<ref bean="modelManageDAO" />
+		</property>
+	</bean>
+	
+	<bean id="clientManageBO"
+		class="com.bcos.bo.impl.ClientManageBOImpl"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="clientManageDAO">
+			<ref bean="clientManageDAO" />
+		</property>
+	</bean>
+	
+	<bean id="userManageBO"
+		class="com.bcos.bo.impl.UserManageBOImpl"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="userManageDAO">
+			<ref bean="userManageDAO" />
+		</property>
+	</bean>
+	
+	<bean id="clientToSeriesManageBO"
+		class="com.bcos.bo.impl.ClientToSeriesManageBOImpl"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="clientToSeriesManageDAO">
+			<ref bean="clientToSeriesManageDAO" />
+		</property>
+	</bean>
+	
+	<bean id="orderListManageBO"
+		class="com.bcos.bo.impl.OrderListManageBOImpl"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="orderListManageDAO">
+			<ref bean="orderListManageDAO" />
+		</property>
+	</bean>
+	
+	<!-- dao bean -->
+	<bean id="loginDAO" class="com.bcos.dao.impl.LoginDAOImpl"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean> 
+	<bean id="brandManageDAO" class="com.bcos.dao.impl.BrandManageDAOImpl"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="usageManageDAO" class="com.bcos.dao.impl.UsageManageDAOImpl"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="seriesManageDAO" class="com.bcos.dao.impl.SeriesManageDAOImpl"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="sizeManageDAO" class="com.bcos.dao.impl.SizeManageDAOImpl"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="modelManageDAO" class="com.bcos.dao.impl.ModelManageDAOImpl"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="clientManageDAO" class="com.bcos.dao.impl.ClientManageDAOImpl"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="userManageDAO" class="com.bcos.dao.impl.UserManageDAOImpl"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="clientToSeriesManageDAO" class="com.bcos.dao.impl.ClientToSeriesManageDAOImpl"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="orderListManageDAO" class="com.bcos.dao.impl.OrderListManageDAOImpl"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+</beans>

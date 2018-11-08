@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+<!-- 登录管理 -->
+<package name="loginAction"  extends="struts-default">
+
+	<!-- 系统登录管理 -->
+    <action name="loginManage" class="com.bcos.action.LoginAction">
+		<result name="success">/pages/frame/main.jsp</result>
+		<result name="input">login.jsp</result>
+	</action>
+	
+</package>
+
+<!-- 进入产品品牌管理界面 -->
+<package name="productBrandAction"  extends="struts-default">
+
+	<!-- 进入产品品牌管理界面 -->
+    <action name="productBrandManage" class="com.bcos.action.BrandManageAction">
+		<result name="success">/pages/sysManage/productManage/productBrandManage.jsp</result>
+		<result name="input">/pages/sysManage/productManage/productBrandManage.jsp</result>
+	</action>
+	
+	<!-- 新增品牌 -->
+	<action name="addBrand" class="com.bcos.action.BrandManageAction" method="addBrand">
+		<result name="success">/pages/sysManage/productManage/productBrandEdit.jsp</result>
+	</action>
+	
+	<!-- 修改品牌 -->
+	<action name="editBrand" class="com.bcos.action.BrandManageAction" method="editBrand">
+		<result name="success">/pages/sysManage/productManage/productBrandEdit.jsp</result>
+	</action>
+	
+	<!-- 删除品牌 -->
+	<action name="deleteBrand" class="com.bcos.action.BrandManageAction" method="deleteBrand">
+		<result name="success" type="redirect">productBrandManage.action?alertFlag=${alertFlag}</result>
+		<result name="input" type="redirect">productBrandManage.action?alertFlag=${alertFlag}</result>
+	</action>
+	
+	<!-- 保存品牌 -->
+	<action name="saveBrand" class="com.bcos.action.BrandManageAction" method="saveBrand">
+		<result name="success" >/pages/sysManage/productManage/productBrandEdit.jsp</result>
+		<result name="edit" type="redirect">productBrandManage.action?alertFlag=${alertFlag}</result>
+		<result name="input" >/pages/sysManage/productManage/productBrandEdit.jsp</result>
+	</action>
+</package>
+
+<!-- 进入产品用途管理界面 -->
+<package name="productUsageAction"  extends="struts-default">
+	<!-- 进入产品用途管理界面 -->
+    <action name="productUsageManage" class="com.bcos.action.UsageManageAction">
+		<result name="success">/pages/sysManage/productManage/productUsageManage.jsp</result>
+		<result name="input">/pages/sysManage/productManage/productUsageManage.jsp</result>
+	</action>
+	
+	<!-- 新增用途 -->
+	<action name="addUsage" class="com.bcos.action.UsageManageAction" method="addUsage">
+		<result name="success">/pages/sysManage/productManage/productUsageEdit.jsp</result>
+	</action>
+	
+	<!-- 修改用途 -->
+	<action name="editUsage" class="com.bcos.action.UsageManageAction" method="editUsage">
+		<result name="success">/pages/sysManage/productManage/productUsageEdit.jsp</result>
+	</action>
+	
+	<!-- 删除用途 -->
+	<action name="deleteUsage" class="com.bcos.action.UsageManageAction" method="deleteUsage">
+		<result name="success" type="redirect">productUsageManage.action?alertFlag=${alertFlag}</result>
+		<result name="input" type="redirect">productUsageManage.action?alertFlag=${alertFlag}</result>
+	</action>
+	
+	<!-- 保存用途 -->
+	<action name="saveUsage" class="com.bcos.action.UsageManageAction" method="saveUsage">
+		<result name="success" >/pages/sysManage/productManage/productUsageEdit.jsp</result>
+		<result name="edit" type="redirect">productUsageManage.action?alertFlag=${alertFlag}</result>
+		<result name="input" >/pages/sysManage/productManage/productUsageEdit.jsp</result>
+	</action>
+</package>
+
+
+<!-- 进入产品系列管理界面 -->
+<package name="productSeriesAction"  extends="struts-default">	
+	<!-- 进入产品系列管理界面 -->
+    <action name="productSeriesManage" class="com.bcos.action.SeriesManageAction">
+		<result name="success">/pages/sysManage/productManage/productSeriesManage.jsp</result>
+		<result name="input">/pages/sysManage/productManage/productSeriesManage.jsp</result>
+	</action>
+	
+	<!-- 新增系列 -->
+	<action name="addSeries" class="com.bcos.action.SeriesManageAction" method="addSeries">
+		<result name="success">/pages/sysManage/productManage/productSeriesEdit.jsp</result>
+	</action>
+	
+	<!-- 修改系列 -->
+	<action name="editSeries" class="com.bcos.action.SeriesManageAction" method="editSeries">
+		<result name="success">/pages/sysManage/productManage/productSeriesEdit.jsp</result>
+	</action>
+	
+	<!-- 删除系列 -->
+	<action name="deleteSeries" class="com.bcos.action.SeriesManageAction" method="deleteSeries">
+		<result name="success" type="redirect">productSeriesManage.action?alertFlag=${alertFlag}</result>
+		<result name="input" type="redirect">productSeriesManage.action?alertFlag=${alertFlag}</result>
+	</action>
+	
+	<!-- 保存系列 -->
+	<action name="saveSeries" class="com.bcos.action.SeriesManageAction" method="saveSeries">
+		<result name="success" >/pages/sysManage/productManage/productSeriesEdit.jsp</result>
+		<result name="edit" type="redirect">productSeriesManage.action?alertFlag=${alertFlag}</result>
+		<result name="input" >/pages/sysManage/productManage/productSeriesEdit.jsp</result>
+	</action>
+</package>
+	
+<!-- 进入产品规格管理界面 -->
+<package name="productSizeAction"  extends="struts-default">	
+	<!-- 进入产品规格管理界面 -->
+    <action name="productSizeManage" class="com.bcos.action.SizeManageAction">
+		<result name="success">/pages/sysManage/productManage/productSizeManage.jsp</result>
+		<result name="input">/pages/sysManage/productManage/productSizeManage.jsp</result>
+	</action>
+	
+	<!-- 新增规格 -->
+	<action name="addSize" class="com.bcos.action.SizeManageAction" method="addSize">
+		<result name="success">/pages/sysManage/productManage/productSizeEdit.jsp</result>
+	</action>
+	
+	<!-- 修改规格 -->
+	<action name="editSize" class="com.bcos.action.SizeManageAction" method="editSize">
+		<result name="success">/pages/sysManage/productManage/productSizeEdit.jsp</result>
+	</action>
+	
+	<!-- 删除规格 -->
+	<action name="deleteSize" class="com.bcos.action.SizeManageAction" method="deleteSize">
+		<result name="success" type="redirect">productSizeManage.action?alertFlag=${alertFlag}</result>
+		<result name="input" type="redirect">productSizeManage.action?alertFlag=${alertFlag}</result>
+	</action>
+	
+	<!-- 保存规格 -->
+	<action name="saveSize" class="com.bcos.action.SizeManageAction" method="saveSize">
+		<result name="success" >/pages/sysManage/productManage/productSizeEdit.jsp</result>
+		<result name="edit" type="redirect">productSizeManage.action?alertFlag=${alertFlag}</result>
+		<result name="input" >/pages/sysManage/productManage/productSizeEdit.jsp</result>
+	</action>
+</package>
+
+<!-- 进入产品名称管理界面 -->
+<package name="productModelAction"  extends="struts-default">	
+	<!-- 进入产品名称管理界面 -->
+    <action name="productModelManage" class="com.bcos.action.ModelManageAction">
+		<result name="success">/pages/sysManage/productManage/productModelManage.jsp</result>
+		<result name="input">/pages/sysManage/productManage/productModelManage.jsp</result>
+	</action>
+	
+	<!-- 新增产品名称 -->
+	<action name="addModel" class="com.bcos.action.ModelManageAction" method="addModel">
+		<result name="success">/pages/sysManage/productManage/productModelEdit.jsp</result>
+	</action>
+	
+	<!-- 修改产品名称 -->
+	<action name="editModel" class="com.bcos.action.ModelManageAction" method="editModel">
+		<result name="success">/pages/sysManage/productManage/productModelEdit.jsp</result>
+	</action>
+	
+	<!-- 删除产品名称 -->
+	<action name="deleteModel" class="com.bcos.action.ModelManageAction" method="deleteModel">
+		<result name="success" type="redirect">productModelManage.action?alertFlag=${alertFlag}</result>
+		<result name="input" type="redirect">productModelManage.action?alertFlag=${alertFlag}</result>
+	</action>
+	
+	<!-- 保存产品名称 -->
+	<action name="saveModel" class="com.bcos.action.ModelManageAction" method="saveModel">
+		<result name="success" >/pages/sysManage/productManage/productModelEdit.jsp</result>
+		<result name="edit" type="redirect">productModelManage.action?alertFlag=${alertFlag}</result>
+		<result name="input" >/pages/sysManage/productManage/productModelEdit.jsp</result>
+	</action>
+	
+	<!-- 显示产品系列列表 -->
+	<action name="displaySeriesList" class="com.bcos.action.ModelManageAction" method="displaySeriesList">
+		<result name="success">/pages/sysManage/productManage/productModelEdit.jsp</result>
+		<result name="input">/pages/sysManage/productManage/productModelEdit.jsp</result>
+	</action>
+	
+</package>
+
+
+
+<!-- 进入客户公司管理界面 -->
+<package name="clientAction"  extends="struts-default">
+
+	<!-- 进入客户公司管理界面 -->
+    <action name="clientManage" class="com.bcos.action.ClientManageAction">
+		<result name="success">/pages/sysManage/clientManage/clientManage.jsp</result>
+		<result name="input">/pages/sysManage/clientManage/clientManage.jsp</result>
+	</action>
+	
+	<!-- 新增客户公司 -->
+	<action name="addClient" class="com.bcos.action.ClientManageAction" method="addClient">
+		<result name="success">/pages/sysManage/clientManage/clientEdit.jsp</result>
+	</action>
+	
+	<!-- 修改客户公司 -->
+	<action name="editClient" class="com.bcos.action.ClientManageAction" method="editClient">
+		<result name="success">/pages/sysManage/clientManage/clientEdit.jsp</result>
+	</action>
+	
+	<!-- 删除客户公司 -->
+	<action name="deleteClient" class="com.bcos.action.ClientManageAction" method="deleteClient">
+		<result name="success" type="redirect">clientManage.action?alertFlag=${alertFlag}</result>
+		<result name="input" type="redirect">clientManage.action?alertFlag=${alertFlag}</result>
+	</action>
+	
+	<!-- 保存客户公司 -->
+	<action name="saveClient" class="com.bcos.action.ClientManageAction" method="saveClient">
+		<result name="success" >/pages/sysManage/clientManage/clientEdit.jsp</result>
+		<result name="edit" type="redirect">clientManage.action?alertFlag=${alertFlag}</result>
+		<result name="input" >/pages/sysManage/clientManage/clientEdit.jsp</result>
+	</action>
+</package>
+
+
+<!-- 进入用户管理界面 -->
+<package name="userAction"  extends="struts-default">	
+	<!-- 进入用户管理界面 -->
+    <action name="userManage" class="com.bcos.action.UserManageAction">
+		<result name="success">/pages/sysManage/clientManage/userManage.jsp</result>
+		<result name="input">/pages/sysManage/clientManage/userManage.jsp</result>
+	</action>
+	
+	<!-- 新增用户 -->
+	<action name="addUser" class="com.bcos.action.UserManageAction" method="addUser">
+		<result name="success">/pages/sysManage/clientManage/userEdit.jsp</result>
+	</action>
+	
+	<!-- 修改用户 -->
+	<action name="editUser" class="com.bcos.action.UserManageAction" method="editUser">
+		<result name="success">/pages/sysManage/clientManage/userEdit.jsp</result>
+	</action>
+	
+	<!-- 删除用户 -->
+	<action name="deleteUser" class="com.bcos.action.UserManageAction" method="deleteUser">
+		<result name="success" type="redirect">userManage.action?alertFlag=${alertFlag}</result>
+		<result name="input" type="redirect">userManage.action?alertFlag=${alertFlag}</result>
+	</action>
+	
+	<!-- 保存用户 -->
+	<action name="saveUser" class="com.bcos.action.UserManageAction" method="saveUser">
+		<result name="success" >/pages/sysManage/clientManage/userEdit.jsp</result>
+		<result name="edit" type="redirect">userManage.action?alertFlag=${alertFlag}</result>
+		<result name="sameCode" >/pages/sysManage/clientManage/userEdit.jsp</result>
+		<result name="input" >/pages/sysManage/clientManage/userEdit.jsp</result>
+	</action>
+	
+	<!-- 修改密码 -->
+	<action name="passwordManage" class="com.bcos.action.UserManageAction" method="passwordManage">
+		<result name="success">/pages/sysManage/clientManage/passwordManage.jsp</result>
+		<result name="input">/pages/sysManage/clientManage/passwordManage.jsp</result>
+	</action>
+	
+</package>
+
+<!-- 进入客户-产品系列授权管理界面 -->
+<package name="clientToSeriesManageAction"  extends="struts-default">	
+	<!-- 进入客户-产品系列授权管理界面 -->
+    <action name="clientToSeriesManage" class="com.bcos.action.ClientToSeriesManageAction">
+		<result name="success">/pages/sysManage/productManage/clientToSeriesManage.jsp</result>
+		<result name="input">/pages/sysManage/productManage/clientToSeriesManage.jsp</result>
+	</action>
+	
+	<!-- 显示客户-产品系列授权中的系列列表-管理页面 -->
+	<action name="displaySeriesList4CTSManage" class="com.bcos.action.ClientToSeriesManageAction" method="displaySeriesList4CTSManage">
+		<result name="success">/pages/sysManage/productManage/clientToSeriesManage.jsp</result>
+		<result name="input">/pages/sysManage/productManage/clientToSeriesManage.jsp</result>
+	</action>
+	
+	<!-- 显示客户-产品系列授权中的名称列表-管理页面 -->
+	<action name="displayModelList4CTSManage" class="com.bcos.action.ClientToSeriesManageAction" method="displayModelList4CTSManage">
+		<result name="success">/pages/sysManage/productManage/clientToSeriesManage.jsp</result>
+		<result name="input">/pages/sysManage/productManage/clientToSeriesManage.jsp</result>
+	</action>
+	
+	<!-- 新增客户-产品系列授权 -->
+	<action name="addClientToSeries" class="com.bcos.action.ClientToSeriesManageAction" method="addClientToSeries">
+		<result name="success">/pages/sysManage/productManage/clientToSeriesEdit.jsp</result>
+	</action>
+	
+	<!-- 修改客户-产品系列授权 -->
+	<action name="editClientToSeries" class="com.bcos.action.ClientToSeriesManageAction" method="editClientToSeries">
+		<result name="success">/pages/sysManage/productManage/clientToSeriesEdit.jsp</result>
+	</action>
+	
+	<!-- 删除客户-产品系列授权 -->
+	<action name="deleteClientToSeries" class="com.bcos.action.ClientToSeriesManageAction" method="deleteClientToSeries">
+		<result name="success" type="redirect">clientToSeriesManage.action?alertFlag=${alertFlag}</result>
+		<result name="input" type="redirect">clientToSeriesManage.action?alertFlag=${alertFlag}</result>
+	</action>
+	
+	<!-- 保存客户-产品系列授权 -->
+	<action name="saveClientToSeries" class="com.bcos.action.ClientToSeriesManageAction" method="saveClientToSeries">
+		<result name="success" >/pages/sysManage/productManage/clientToSeriesEdit.jsp</result>
+		<result name="edit" type="redirect">clientToSeriesManage.action?alertFlag=${alertFlag}</result>
+		<result name="input" >/pages/sysManage/productManage/clientToSeriesEdit.jsp</result>
+	</action>
+	
+	<!-- 显示客户-产品系列授权中的系列列表-修改页面 -->
+	<action name="displaySeriesList4CTS" class="com.bcos.action.ClientToSeriesManageAction" method="displaySeriesList4CTS">
+		<result name="success">/pages/sysManage/productManage/clientToSeriesEdit.jsp</result>
+		<result name="input">/pages/sysManage/productManage/clientToSeriesEdit.jsp</result>
+	</action>
+	
+	<!-- 显示客户-产品系列授权中的名称列表-修改页面 -->
+	<action name="displayModelList4CTS" class="com.bcos.action.ClientToSeriesManageAction" method="displayModelList4CTS">
+		<result name="success">/pages/sysManage/productManage/clientToSeriesEdit.jsp</result>
+		<result name="input">/pages/sysManage/productManage/clientToSeriesEdit.jsp</result>
+	</action>
+	
+</package>
+
+
+<!-- 进入订单管理界面 -->
+<package name="orderListManageAction"  extends="struts-default">	
+
+	<!-- 客户订单管理 -->
+	<!-- 进入客户订单管理界面 -->
+    <action name="clientListManage" class="com.bcos.action.OrderListManageAction" method="clientListManage">
+		<result name="success">/pages/listManage/clientListManage.jsp</result>
+		<result name="input">/pages/listManage/clientListManage.jsp</result>
+	</action>
+	<!-- 新建客户订单 -->
+    <action name="newClientList" class="com.bcos.action.OrderListManageAction" method="newClientList">
+		<result name="success">/pages/listManage/newClientList.jsp</result>
+		<result name="input">/pages/listManage/clientListManage.jsp</result>
+	</action>
+	<!-- 保存客户订单 -->
+    <action name="saveClientList" class="com.bcos.action.OrderListManageAction" method="saveClientList">
+		<result name="success">/pages/listManage/clientListEdit.jsp</result>
+		<result name="input">/pages/listManage/newClientList.jsp</result>
+	</action>
+	<!-- 修改客户订单 -->
+    <action name="editClientList" class="com.bcos.action.OrderListManageAction" method="editClientList">
+		<result name="success">/pages/listManage/clientListEdit.jsp</result>
+		<result name="input">/pages/listManage/clientListManage.jsp</result>
+	</action>
+	<!-- 删除订单 -->
+    <action name="deleteClientList" class="com.bcos.action.OrderListManageAction" method="deleteClientList">
+		<result name="success" type="redirect">clientListManage.action?alertFlag=${alertFlag}</result>
+		<result name="input" type="redirect">clientListManage.action?alertFlag=${alertFlag}</result>
+	</action>
+	<!-- 保存客户订单明细 -->
+    <action name="saveClientListDetail" class="com.bcos.action.OrderListManageAction" method="saveClientListDetail">
+		<result name="success">/pages/listManage/clientListEdit.jsp</result>
+		<result name="input">/pages/listManage/clientListEdit.jsp</result>
+	</action>
+	<!-- 删除客户订单明细 -->
+    <action name="deleteClientListDetail" class="com.bcos.action.OrderListManageAction" method="deleteClientListDetail">
+		<result name="success">/pages/listManage/clientListEdit.jsp</result>
+		<result name="input">/pages/listManage/clientListEdit.jsp</result>
+	</action>
+	<!-- 显示客户订单明细中的系列列表 -->
+	<action name="displaySeriesList4Detail" class="com.bcos.action.OrderListManageAction" method="displaySeriesList4Detail">
+		<result name="success">/pages/listManage/clientListEdit.jsp</result>
+		<result name="input">/pages/listManage/clientListEdit.jsp</result>
+	</action>
+	<!-- 显示客户订单明细中的名称列表 -->
+	<action name="displayModelList4Detail" class="com.bcos.action.OrderListManageAction" method="displayModelList4Detail">
+		<result name="success">/pages/listManage/clientListEdit.jsp</result>
+		<result name="input">/pages/listManage/clientListEdit.jsp</result>
+	</action>
+	<!-- 显示客户订单明细中的价格 -->
+	<action name="displayPrice4Detail" class="com.bcos.action.OrderListManageAction" method="displayPrice4Detail">
+		<result name="success">/pages/listManage/clientListEdit.jsp</result>
+		<result name="input">/pages/listManage/clientListEdit.jsp</result>
+	</action>
+	
+	<!-- 管理员订单管理 -->
+	<!-- 进入管理员订单管理界面 -->
+    <action name="adminListManage" class="com.bcos.action.OrderListManageAction" method="adminListManage">
+		<result name="success">/pages/listManage/adminListManage.jsp</result>
+		<result name="input">/pages/listManage/adminListManage.jsp</result>
+	</action>
+	
+	<!-- 查询管理员订单 -->
+    <action name="queryAdminList" class="com.bcos.action.OrderListManageAction" method="queryAdminList">
+		<result name="success">/pages/listManage/adminListManage.jsp</result>
+		<result name="input">/pages/listManage/adminListManage.jsp</result>
+	</action>
+	
+	<!--查看客户订单 -->
+    <action name="viewClientList" class="com.bcos.action.OrderListManageAction" method="viewClientList">
+		<result name="success">/pages/listManage/adminListView.jsp</result>
+		<result name="input">/pages/listManage/adminListManage.jsp</result>
+	</action>
+	
+	<!--复核\销复核客户订单 -->
+    <action name="checkAndUncheckClientList" class="com.bcos.action.OrderListManageAction" method="checkAndUncheckClientList">
+		<result name="success">/pages/listManage/adminListView.jsp</result>
+		<result name="input">/pages/listManage/adminListView.jsp</result>
+	</action>
+	
+	<!--打印客户订单 -->
+    <action name="clientListPrt" class="com.bcos.action.OrderListManageAction" method="clientListPrt">
+		<result name="success">/pages/listManage/clientListPrt.jsp</result>
+		<result name="input">/pages/listManage/clientListPrt.jsp</result>
+	</action>
+	
+	<!--汇总客户订单 -->
+    <action name="sumClientList" class="com.bcos.action.OrderListManageAction" method="sumClientList">
+		<result name="success" type="redirect">adminListManage.action?alertFlag=${alertFlag}</result>
+		<result name="input">/pages/listManage/adminListManage.jsp</result>
+	</action>
+	
+	<!-- 汇总订单管理 -->
+	<!-- 进入汇总订单管理界面 -->
+    <action name="sumListManage" class="com.bcos.action.OrderListManageAction" method="sumListManage">
+		<result name="success">/pages/listManage/sumListManage.jsp</result>
+		<result name="input">/pages/listManage/sumListManage.jsp</result>
+	</action>
+	
+	<!--查看客户订单 -->
+    <action name="viewSumList" class="com.bcos.action.OrderListManageAction" method="viewSumList">
+		<result name="success">/pages/listManage/sumListView.jsp</result>
+		<result name="input">/pages/listManage/sumListManage.jsp</result>
+	</action>
+	
+	<!-- 产品订购分析查询 -->
+	<!-- 进入产品订购分析查询页面 -->
+    <action name="entryDetailAnalyseManage" class="com.bcos.action.OrderListManageAction" method="entryDetailAnalyseManage">
+		<result name="success">/pages/listManage/detailAnalyseManage.jsp</result>
+		<result name="input">/pages/listManage/detailAnalyseManage.jsp</result>
+	</action>
+	
+	<!-- 产品订购分析查询 -->
+    <action name="detailAnalyseManage" class="com.bcos.action.OrderListManageAction" method="detailAnalyseManage">
+		<result name="success">/pages/listManage/detailAnalyseManage.jsp</result>
+		<result name="input">/pages/listManage/detailAnalyseManage.jsp</result>
+	</action>
+	
+	<!-- 显示产品分析中的系列列表 -->
+    <action name="displaySeriesList4Analyse" class="com.bcos.action.OrderListManageAction" method="displaySeriesList4Analyse">
+		<result name="success">/pages/listManage/detailAnalyseManage.jsp</result>
+		<result name="input">/pages/listManage/detailAnalyseManage.jsp</result>
+	</action>
+	
+	<!-- 显示产品分析中的名称列表 -->
+    <action name="displayModelList4Analyse" class="com.bcos.action.OrderListManageAction" method="displayModelList4Analyse">
+		<result name="success">/pages/listManage/detailAnalyseManage.jsp</result>
+		<result name="input">/pages/listManage/detailAnalyseManage.jsp</result>
+	</action>
+	
+</package>
+
+</struts>
